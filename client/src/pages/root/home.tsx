@@ -39,7 +39,7 @@ const HomePage = () => {
             </div>
             <div className='mt-[700px] sm:mt-[600px] md:mt-[600px] lg:mt-[500px] flex items-center gap-10 w-[80%]'>
                 <div className='flex flex-col gap-6 mt-36 max-sm:w-[95%] max-sm:mx-auto'>
-                    <h1 className='text-5xl max-sm:text-center max-lg:mx-auto font-semibold mb-10'>HOW IT WORKS</h1>
+                    <h1 className='sm:text-5xl max-sm:text-4xl max-sm:text-center max-lg:mx-auto font-semibold mb-10'>HOW IT WORKS</h1>
                     <img src="./project_final.png " alt="" className='w-96 lg:hidden mx-auto' />
 
                     <p className='text-xl'>
@@ -62,7 +62,7 @@ const HomePage = () => {
             </div>
 
             <div className="flex flex-col w-full bg-[#f7fafc] items-center sm:gap-10 mt-20">
-                <h1 className="pt-20 lg:pt-20 text-center sm:p-5  md:text-6xl md:font-semibold text-3xl font-bold">
+                <h1 className="pt-20 lg:pt-20 text-center sm:p-5  md:text-6xl md:font-semibold max-sm:text-4xl font-bold">
                     OUR FEATURES
                 </h1>
 
