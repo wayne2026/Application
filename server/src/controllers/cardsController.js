@@ -51,9 +51,9 @@ export const createCard = catchAsyncErrors(async (req, res, next) => {
     }
 
     const user = await User.findById(req.user.id);
-    if (user.freePlan.type === freeEnum.PLAN && user.cards.total <= user.cards.created) {
-        return next(new ErrorHandler(`You have reached your total card limit.`, 403));
-    }
+    // if (user.freePlan.type === freeEnum.PLAN && user.cards.total <= user.cards.created) {
+    //     return next(new ErrorHandler(`You have reached your total card limit.`, 403));
+    // }
 
     let shortId = `sh${Date.now().toString(36)}`;
 
@@ -101,9 +101,9 @@ export const updateCard = catchAsyncErrors(async (req, res, next) => {
     if (!vCard.user.equals(user._id)) {
         return next(new ErrorHandler("Unauthorized to update this vCard", 401));
     }
-    if (user.freePlan.type === freeEnum.PLAN && user.cards.total <= user.cards.created) {
-        return next(new ErrorHandler(`You have reached your total card limit.`, 403));
-    }
+    // if (user.freePlan.type === freeEnum.PLAN && user.cards.total <= user.cards.created) {
+    //     return next(new ErrorHandler(`You have reached your total card limit.`, 403));
+    // }
 
     const updatedVCard = await Model.findByIdAndUpdate(
         req.params.id,
@@ -189,17 +189,17 @@ export const getDisplayCard = catchAsyncErrors(async (req, res, next) => {
     }
 
     const user = await User.findById(vCard.user);
-    if (user?.freePlan?.status && user.role !== "admin") {
-        const { type, end } = user.freePlan;
-        if (type === freeEnum.PLAN && end > Date.now()) {
-            return next(new ErrorHandler("VCard Not Found", 404));
-        }
-    }
+    // if (user?.freePlan?.status && user.role !== "admin") {
+    //     const { type, end } = user.freePlan;
+    //     if (type === freeEnum.PLAN && end > Date.now()) {
+    //         return next(new ErrorHandler("VCard Not Found", 404));
+    //     }
+    // }
 
-    const subscription = await Subscription.findById(user?.activePlan);
-    if (user.role !== "admin" && (!subscription || !["active", "pending"].includes(subscription?.status) || (subscription?.status === "cancelled" && subscription?.currentEnd < Date.now()))) {
-        return next(new ErrorHandler("VCard Not Found 2", 404));
-    }
+    // const subscription = await Subscription.findById(user?.activePlan);
+    // if (user.role !== "admin" && (!subscription || !["active", "pending"].includes(subscription?.status) || (subscription?.status === "cancelled" && subscription?.currentEnd < Date.now()))) {
+    //     return next(new ErrorHandler("VCard Not Found 2", 404));
+    // }
 
     res.status(200).json({
         success: true,

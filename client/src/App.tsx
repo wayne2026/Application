@@ -105,7 +105,7 @@ const App = () => {
                     userId: user._id,
                 },
             });
-    
+
             return () => {
                 newSocket.disconnect();
             };
@@ -155,7 +155,7 @@ const App = () => {
                         element={lod2 ? (
                             <Loader />
                         ) : (
-                            <ProtectedRoute isAuthenticated={!!donator} redirect="/donation/login" />
+                            <ProtectedRoute isAuthenticated={true} redirect="/donation/login" />
                         )}
                     >
                         <Route path="/donation/checkout" element={<DonationCheckout />} />
@@ -167,7 +167,7 @@ const App = () => {
                         element={loading ? (
                             <Loader />
                         ) : (
-                            <ProtectedRoute isAuthenticated={!!user} redirect="/login" />
+                            <ProtectedRoute isAuthenticated={true} redirect="/login" />
                         )}
                     >
                         <Route path="/request-custom" element={<RequestCustom />} />
@@ -190,7 +190,7 @@ const App = () => {
 
                     <Route path="*" element={<NotFound />} />
                 </Routes>
-                {!["/login", "/register", "/org/register"].includes(location.pathname) && (<Footer />)}
+                {["/"].includes(location.pathname) && (<Footer />)}
             </ErrorBoundary>
         </div>
     );

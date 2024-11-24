@@ -22,7 +22,7 @@ const OnBoarding = () => {
     }
 
     return (
-        <div className="w-full mt-16">
+        <div className="w-full h-screen pt-20 bg-[#e5e9fa] ">
             <div className="p-4 w-full mx-auto md:w-[50%] lg:w-[40%]">
                 <h1 className="text-3xl lg:text-4xl text-left lg:text-center font-bold">Who are you?</h1>
                 <p className="text-lg mt-4 leading-tight text-left lg:text-center text-slate-500">To assist you in streamlining the process for achieving your objective</p>
